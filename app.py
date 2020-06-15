@@ -41,8 +41,36 @@ def balance_team(p_team, b_team, w_team):
         random_player(w_team)
         
 
+def stats_tool():
+    print('\nBASKETBALL TEAM STATS TOOL\n')
+    print('\n---- MENU ----\n')
+    print('\nHere are you choices:\n1) Display team stats\n2) Quit\n')
+    while True:
+        try:
+            menu_opt = int(input('Enter an option > '))
+            print()
+        except:
+            print('\n\nThat is not a valid option')
+            print('Your options are > [1] or > [2]\n\n')
+            continue
+        
+        if menu_opt == 2:
+            print('\nQuitting...\n')
+            break
+        
+        elif menu_opt == 1:
+            print('Pick your team:\n1) Panthers\n2) Bandits\n3) Warriors')
+            menu_opt = input('Enter an option > ')
+
+        else:
+            print('\n\nThat is not a valid option\n\n')
+            continue
+        
+
+
 clean_data()
 balance_team(panthers, bandits, warriors)
-print(f'\nPlayers on Panthers: {len(panthers)}\n{panthers}\n')
-print(f'\nPlayers on Bandits: {len(bandits)}\n{bandits}\n')
-print(f'\nPlayers on Warriors: {len(warriors)}\n{warriors}\n')
+stats_tool()
+# print(f'\nPlayers on Panthers: {len(panthers)}\n{panthers}\n')
+# print(f'\nPlayers on Bandits: {len(bandits)}\n{bandits}\n')
+# print(f'\nPlayers on Warriors: {len(warriors)}\n{warriors}\n')
