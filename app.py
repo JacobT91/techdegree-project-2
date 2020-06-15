@@ -23,7 +23,7 @@ def clean_data():
         experienced.append(player) if player['experience'] == bool('TRUE') else inexperienced.append(player)
         
 
-# Selects plyers randomly by experience bool statement
+# Selects players randomly by experience bool statement
 def random_player(x_team):
     rand_player = random.choice(experienced)
     x_team.append(rand_player)
