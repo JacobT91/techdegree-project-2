@@ -35,7 +35,7 @@ def random_player(x_team):
 
 # Assigns random players to specified teams
 def balance_team(p_team, b_team, w_team):
-    while len(experienced) or len(inexperienced) != 0:
+    while len(experienced) and len(inexperienced) != 0:
         random_player(p_team)
         random_player(b_team)
         random_player(w_team)
