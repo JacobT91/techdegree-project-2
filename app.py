@@ -21,6 +21,8 @@ def clean_data():
         # If, Else, creates a bool value from a key value and adds players to a list
         player['experience'] = bool("TRUE") if player['experience'] == 'YES' else bool()
         experienced.append(player) if player['experience'] == bool('TRUE') else inexperienced.append(player)
+        #Split up the guardian string into a List
+        player['guardians'] = player['guardians'].split(' and ')
         
 
 # Selects players randomly by experience bool statement
@@ -45,12 +47,14 @@ def stats_tool():
     print('\nBASKETBALL TEAM STATS TOOL\n')
     print('\n---- MENU ----\n')
     print('\nHere are you choices:\n1) Display team stats\n2) Quit\n')
+    
     while True:
         try:
             menu_opt = int(input('Enter an option > '))
             print()
-        except:
-            print('\n\nThat is not a valid option')
+
+        except ValueError as err:
+            print('\n\n{}'.format(err))
             print('Your options are > [1] or > [2]\n\n')
             continue
         
@@ -59,12 +63,35 @@ def stats_tool():
             break
         
         elif menu_opt == 1:
-            print('Pick your team:\n1) Panthers\n2) Bandits\n3) Warriors')
-            menu_opt = input('Enter an option > ')
+            print('Pick your team:\n1) Panthers\n2) Bandits\n3) Warriors\n')
+            try:
+                menu_opt = int(input('Enter an option > '))
+                print()
+            except ValueError as err:
+                print('\n\n{}'.format(err))
+                print('Your options are > [1] or > [2]\n\n')
+                
+            if menu_opt == 1:
+                input_team = panthers
+                print('\nTeam: Panthers Stats')
 
-        else:
-            print('\n\nThat is not a valid option\n\n')
-            continue
+            elif menu_opt == 2:
+                input_team = bandits
+                print('\nTeam: Bandits Stats')
+
+            elif menu_opt == 3:
+                input_team = warriors
+                print('\nTeam: Warriors Stats')
+            
+            print('-' * 20)
+            print('Total Players: {}\n'.format(len(input_team)))
+            
+            team_names = [i['name'] for i in input_team]
+            sep = ', '
+            team_names = sep.join(team_names)
+            print('Players on Team: {}'.format(str(team_names)))
+        
+    
         
 
 
