@@ -89,7 +89,7 @@ def stats_tool():
             team_names = [i['name'] for i in input_team]
             sep = ', '
             team_names = sep.join(team_names)
-            print('Players on Team: {}'.format(str(team_names)))
+            print('Players on Team:\n  {}\n\n'.format(str(team_names)))
         
     
         
