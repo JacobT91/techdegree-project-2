@@ -72,7 +72,7 @@ def stats_tool():
 
                 elif menu_opt == 1:
                     print(
-                        'Pick your team:\n'
+                        '\nPick your team:\n'
                         '1) Panthers\n'
                         '2) Bandits\n'
                         '3) Warriors\n'
