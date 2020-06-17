@@ -111,7 +111,7 @@ def stats_tool():
                         elif i['experience'] == False:
                             team_inexper += 1
 
-                    team_height = [int(i['height']) for i in input_team]
+                    team_height = [i['height'] for i in input_team]
                     team_names = [i['name'] for i in input_team]
                     team_guard = [sep.join(i['guardians']) for i in input_team]
                     team_names = sep.join(team_names)
