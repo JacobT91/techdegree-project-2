@@ -12,7 +12,7 @@ panthers = []
 bandits = []
 warriors = []
 
-# Reformats players height and experience from players list
+# Reformats players height, guardians, and experience from players list
 def clean_data():
     for player in players:
         # Replaces letter characters with empty string value
@@ -46,9 +46,9 @@ def balance_team(p_team, b_team, w_team):
 def stats_tool():
     print('\nBASKETBALL TEAM STATS TOOL\n')
     print('\n---- MENU ----\n')
-    print('\nHere are you choices:\n1) Display team stats\n2) Quit\n')
     
     while True:
+        print('\nHere are you choices:\n1) Display team stats\n2) Quit\n')
         try:
             menu_opt = int(input('Enter an option > '))
             print()
@@ -85,19 +85,25 @@ def stats_tool():
             
             print('-' * 20)
             print('Total Players: {}\n'.format(len(input_team)))
-            
-            team_names = [i['name'] for i in input_team]
+
             sep = ', '
+            team_names = [i['name'] for i in input_team]
+            team_guard = [sep.join(i['guardians']) for i in input_team]
             team_names = sep.join(team_names)
-            print('Players on Team:\n  {}\n\n'.format(str(team_names)))
-        
-    
-        
+            
+
+            print('Players on Team:\n  {}\n\n'.format(team_names))
+            print('Guardians:\n  {}\n\n'.format(sep.join(team_guard)))
+            # print('Guardians: {}'.input_team['guardians'])
 
 
-clean_data()
-balance_team(panthers, bandits, warriors)
-stats_tool()
-# print(f'\nPlayers on Panthers: {len(panthers)}\n{panthers}\n')
-# print(f'\nPlayers on Bandits: {len(bandits)}\n{bandits}\n')
-# print(f'\nPlayers on Warriors: {len(warriors)}\n{warriors}\n')
+        print('Please press enter to continue.')
+    # guardians
+        
+if __name__ == "__main__":
+    clean_data()
+    balance_team(panthers, bandits, warriors)
+    stats_tool()
+    # print(f'\nPlayers on Panthers: {len(panthers)}\n{panthers}\n')
+    # print(f'\nPlayers on Bandits: {len(bandits)}\n{bandits}\n')
+    # print(f'\nPlayers on Warriors: {len(warriors)}\n{warriors}\n')
