@@ -105,10 +105,10 @@ def stats_tool():
                     sep = ', '
 
                     for i in input_team:
-                        if i['experience'] == True:
+                        if i['experience'] == bool('TRUE'):
                             team_exper += 1
 
-                        elif i['experience'] == False:
+                        elif i['experience'] == bool():
                             team_inexper += 1
 
                     team_height = [i['height'] for i in input_team]
