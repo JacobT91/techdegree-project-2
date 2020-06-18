@@ -14,7 +14,6 @@ def clean_data():
         
         
 def balance_teams():
-    # for i in teams:
     for i, team in enumerate(teams, 1):
         print("{}) {}".format(i, team['name']))        
         
