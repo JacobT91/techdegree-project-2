@@ -24,19 +24,18 @@ def clean_data():
         player['height'] = int(player['height'])
         player['experience'] = bool("TRUE")\
             if player['experience'] == 'YES' else bool()
-        experienced.append(player) if player['experience'] == bool('TRUE')\
-            else inexperienced.append(player)
+        experienced.append(player) if player['experience'] == bool('TRUE') else inexperienced.append(player)
         player['guardians'] = player['guardians'].split(' and ')
 
 
 # # Selects players randomly by experience bool statement
-# def random_player(x_team):
-#     rand_player = random.choice(experienced)
-#     x_team.append(rand_player)
-#     experienced.remove(rand_player)
-#     rand_player2 = random.choice(inexperienced)
-#     x_team.append(rand_player2)
-#     inexperienced.remove(rand_player2)
+def random_player(x_team):
+    rand_player = random.choice(experienced)
+    x_team.append(rand_player)
+    experienced.remove(rand_player)
+    rand_player2 = random.choice(inexperienced)
+    x_team.append(rand_player2)
+    inexperienced.remove(rand_player2)
 
 
 # # Assigns random players to specified teams
