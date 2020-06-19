@@ -5,6 +5,8 @@ import random
 teams = copy.deepcopy(constants.TEAMS)
 players = copy.deepcopy(constants.PLAYERS)
 
+teams_dict = {}
+
 
 def clean_data():
     for i in players:
@@ -12,10 +14,20 @@ def clean_data():
         i['experience'] = [bool('T') if i['experience'] == 'YES' else bool()]
         i['guardians'] = i['guardians'].split(' and ')
         
+
+
+def balance_teams(teams_list):
+    clean_dict = {k: v for k, v in enumerate(teams, 1)}
+    teams_dict.update(clean_dict)
+
+
+    
         
-def balance_teams():
-    for i, team in enumerate(teams, 1):
-        print("{}) {}".format(i, team['name']))        
+    
+    
+
+    
+    
         
     
 
@@ -27,5 +39,5 @@ def balance_teams():
 
 
 clean_data()
-balance_teams()
-# print(teams)
+balance_teams(teams)
+print(teams_dict)

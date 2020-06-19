@@ -18,19 +18,15 @@ inexperienced = []
         
         
 # display_teams()
-# def clean_data():
-#     for player in players:
-#         # Replaces letter characters with empty string value
-#         player['height'] = player['height'].replace(' inches', '')
-#         player['height'] = int(player['height'])
-#         # If, Else, creates a bool value from a key
-#         # value and adds players to a list
-#         player['experience'] = bool("TRUE")\
-#             if player['experience'] == 'YES' else bool()
-#         experienced.append(player) if player['experience'] == bool('TRUE')\
-#             else inexperienced.append(player)
-#         # Split up the guardian string into a List
-#         player['guardians'] = player['guardians'].split(' and ')
+def clean_data():
+    for player in players:
+        player['height'] = player['height'].replace(' inches', '')
+        player['height'] = int(player['height'])
+        player['experience'] = bool("TRUE")\
+            if player['experience'] == 'YES' else bool()
+        experienced.append(player) if player['experience'] == bool('TRUE')\
+            else inexperienced.append(player)
+        player['guardians'] = player['guardians'].split(' and ')
 
 
 # # Selects players randomly by experience bool statement
