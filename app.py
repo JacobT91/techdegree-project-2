@@ -6,7 +6,7 @@ teams = copy.deepcopy(constants.TEAMS)
 players = copy.deepcopy(constants.PLAYERS)
 
 num_players_team = int(round(len(constants.PLAYERS) / len(constants.TEAMS)))
-teams_dict = dict.fromkeys(teams, {})
+teams_dict = dict.fromkeys(teams, [])
 experienced = []
 inexperienced = []
 
@@ -21,13 +21,16 @@ def clean_data():
 
 def balance_teams():
     for v in teams_dict.values():
-        while len(v) != num_players_team:
-            rand_player = random.choice(experienced)
-            v.update(rand_player)
-            experienced.remove(rand_player)
-            rand_player_2 = random.choice(inexperienced)
-            v.update(rand_player_2)
-            experienced.remove(rand_player_2)
+        exper_rand_player = random.choice(experienced)
+        v.append(exper_rand_player)
+        experienced.remove(exper_rand_player)
+        inexper_rand_player = random.choice(inexperienced)
+        v.append(inexper_rand_player)
+        inexperienced.remove(inexper_rand_player)
+
+        if len(v) == num_players_team:
+            break
+        
 
         
 
