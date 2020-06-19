@@ -15,10 +15,10 @@ def clean_data():
         i['guardians'] = i['guardians'].split(' and ')
         
 
-
 def balance_teams(teams_list):
-    clean_dict = {k: v for k, v in enumerate(teams, 1)}
-    teams_dict.update(clean_dict)
+    clean_teams = {k: v for k, v in enumerate(teams, 1)}
+    teams_dict.update(clean_teams)
+    
 
 
     
@@ -37,7 +37,6 @@ def balance_teams(teams_list):
 
 
 
-
-clean_data()
-balance_teams(teams)
-print(teams_dict)
+if __name__ == "__main__":
+    clean_data()
+    balance_teams(teams)
