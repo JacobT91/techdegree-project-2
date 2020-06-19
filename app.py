@@ -32,7 +32,26 @@ def balance_teams():
             break
         
 
-        
+def start_tool():
+    print('\nBASKETBALL TEAM STATS TOOL\n')
+    print('------- MENU -------')
+    print(
+        '\nHere are your choices:\n',
+        '1) Display Team Stats\n',
+        '2) Quit\n'
+        )
+    
+    menu_input = int(input('Enter an option > '))
+    print()
+
+    if menu_input == 1:
+        for num, i in enumerate(teams_dict, 1):
+            print(f'{num}) {i}')
+
+    menu_input = int(input('\nEnter an option > '))
+    print()
+    
+
 
 
 # def balance_teams(teams_list):
@@ -61,5 +80,5 @@ def balance_teams():
 if __name__ == "__main__":
     clean_data()
     balance_teams()
-    print(teams_dict)
+    start_tool()
     
