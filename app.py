@@ -21,9 +21,21 @@ def clean_data():
         experienced.append(i) if i['experience'] == True else inexperienced.append(i)
         
 
-# Please help me write this function. I was told I have to use the teams list to create either a dict() or list() to add players to
+# Please help me write this function. I was told I have to use the
+# teams list to create either a dict() or list() to add players to.
+# If I do this every randomily picked player goes to ever team.
 def balance_teams():
+    for v in teams_dict.values():
+        exper_rand_player = random.choice(experienced)
+        v.append(exper_rand_player)
+        experienced.remove(exper_rand_player)
+        inexper_rand_player = random.choice(inexperienced)
+        v.append(inexper_rand_player)
+        inexperienced.remove(inexper_rand_player)
 
+        # if len(v) == num_players_team:
+            
+    print(teams_dict)
 
 
 
