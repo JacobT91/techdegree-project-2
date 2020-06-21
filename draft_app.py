@@ -8,6 +8,8 @@ players = copy.deepcopy(constants.PLAYERS)
 experienced = []
 inexperienced = []
 
+# Hard coded teams list to add players to 
+# *****\/ Is this ok \/******
 panthers = []
 bandits = []
 warriors = []
@@ -16,14 +18,10 @@ warriors = []
 # Reformats players height, guardians, and experience from players list
 def clean_data():
     for player in players:
-        # Replaces letter characters with empty string value
         player['height'] = player['height'].replace(' inches', '')
         player['height'] = int(player['height'])
-        # If, Else, creates a bool value from a key
-        # value and adds players to a list
         player['experience'] = bool("TRUE") if player['experience'] == 'YES' else bool()
         experienced.append(player) if player['experience'] == bool('TRUE') else inexperienced.append(player)
-        # Split up the guardian string into a List
         player['guardians'] = player['guardians'].split(' and ')
 
 
@@ -38,6 +36,7 @@ def random_player(x_team):
 
 
 # Assigns random players to specified teams
+# *****\/ Assigns players to hard coded teams \/*****
 def balance_team(p_team, b_team, w_team):
     while len(experienced) and len(inexperienced) != 0:
         random_player(p_team)
@@ -67,7 +66,11 @@ def stats_tool():
                 if menu_opt == 2:
                     print('\nQuitting...\n')
                     exit()
-
+                
+# I can fix this one with next note
+# print('Pick your team:')
+# for num, team in enumerate(teams, 1):
+#     print(f'{num}) {team}')
                 elif menu_opt == 1:
                     print(
                         '\nPick your team:\n'
