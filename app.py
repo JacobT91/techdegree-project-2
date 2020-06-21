@@ -21,7 +21,7 @@ def clean_data():
         experienced.append(i) if i['experience'] == True else inexperienced.append(i)
         
 
-# Please help me write this function. I was told I have to use the teams list to create either a dict() or list()
+# Please help me write this function. I was told I have to use the teams list to create either a dict() or list() to add players to
 def balance_teams():
 
 
