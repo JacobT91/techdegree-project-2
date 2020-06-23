@@ -7,10 +7,13 @@ players = copy.deepcopy(constants.PLAYERS)
 num_players_team = int(round(len(constants.PLAYERS) / len(constants.TEAMS)))
 
 # This line creates a teams dict()
-teams_dict = dict.fromkeys(teams, [])
+# teams_cleaned = []
+# teams_dict = dict.fromkeys(teams, [])
 
 experienced = []
 inexperienced = []
+holding_area = []
+sorted_teams = []
 
 
 def clean_data():
@@ -19,23 +22,30 @@ def clean_data():
         i['experience'] = bool('T') if i['experience'] == 'YES' else bool()
         i['guardians'] = i['guardians'].split(' and ')
         experienced.append(i) if i['experience'] == True else inexperienced.append(i)
-        
+    
 
-# Please help me write this function. I was told I have to use the
-# teams list to create either a dict() or list() to add players to.
-# If I do this every randomily picked player goes to ever team.
 def balance_teams():
-    for v in teams_dict.values():
-        exper_rand_player = random.choice(experienced)
-        v.append(exper_rand_player)
-        experienced.remove(exper_rand_player)
-        inexper_rand_player = random.choice(inexperienced)
-        v.append(inexper_rand_player)
-        inexperienced.remove(inexper_rand_player)
-
-        # if len(v) == num_players_team:
+    for num, key in enumerate(teams):
+        add_team = {
+            key: []
+        }
+        sorted_teams.append(add_team)
+        holding_area.clear()
+        print(holding_area)
+        while len(holding_area) < num_players_team:
             
-    print(teams_dict)
+            rand_player_ex = random.choice(experienced)
+            holding_area.append(rand_player_ex)
+            experienced.remove(rand_player_ex)
+
+            rand_player_in = random.choice(inexperienced)
+            holding_area.append(rand_player_in)
+            inexperienced.remove(rand_player_in)
+        
+        sorted_teams[num] = holding_area
+
+
+
 
 
 
@@ -48,4 +58,5 @@ def balance_teams():
 if __name__ == "__main__":
     clean_data()
     balance_teams()
+    
 
