@@ -56,7 +56,7 @@ def get_stats(team_list, opt):
 
 def print_stats(team_list, opt):
     sep = ', '
-    print(f'Team: {teams[opt - 1]} stats')
+    print(f'\nTeam: {teams[opt - 1]} stats')
     print('-' * 20)
     print('Total players: {}\n'.format(len(team_list['names'])))
     print('Total experienced: {}'.format(team_list['experience']))
@@ -119,7 +119,6 @@ def stats_tool():
                     input_team = sorted_teams[menu_opt - 1]
                     get_stats(input_team, menu_opt)
                     print_stats(input_team, menu_opt)
-                    print()
                     input('Press enter to continue... ')
                     print()
                     break
