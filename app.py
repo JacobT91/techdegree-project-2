@@ -42,7 +42,7 @@ def balance_teams(team_list):
 
 
 def get_stats(team_list, opt):
-    if len(team_list['names']) < 6:
+    if len(team_list['names']) < num_players_team:
         for num in range(0, len(team_list['players'])):
             team_list['names'].append(team_list['players'][num]['name'])
             team_list['heights'].append(team_list['players'][num]['height'])
