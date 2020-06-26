@@ -42,16 +42,17 @@ def balance_teams(team_list):
 
 
 def get_stats(team_list, opt):
-    for num in range(0, len(team_list['players'])):
-        team_list['names'].append(team_list['players'][num]['name'])
-        team_list['heights'].append(team_list['players'][num]['height'])
-        team_list['guardians'] += team_list['players'][num]['guardians']
+    if len(team_list['names']) < 6:
+        for num in range(0, len(team_list['players'])):
+            team_list['names'].append(team_list['players'][num]['name'])
+            team_list['heights'].append(team_list['players'][num]['height'])
+            team_list['guardians'] += team_list['players'][num]['guardians']
 
-        if team_list['players'][num]['experience'] == bool('T'):
-            team_list['experience'] += 1
+            if team_list['players'][num]['experience'] == bool('T'):
+                team_list['experience'] += 1
 
-        elif team_list['players'][num]['experience'] == bool():
-            team_list['inexperience'] += 1
+            elif team_list['players'][num]['experience'] == bool():
+                team_list['inexperience'] += 1
 
 
 def print_stats(team_list, opt):
